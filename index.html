@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <div class="test">
+    <div class="task__form">
       <input
         class="task__input"
         id="new__task"
@@ -28,14 +28,12 @@
     </div>
     <div id="task__container" class="task__container"></div>
     <dialog class="modal" id="delete-task">
-        <h1>Delete Task</h1>
-        <p>Are you sure you want to delete this task?</p>
-        <button type='submit' id="yes">Yes</button>
-        <button type='cancel' id="no">No</button>
+      <h1>Delete Task</h1>
+      <p>Are you sure you want to delete this task?</p>
+      <button type="submit" id="delete-btn">Yes</button>
+      <button type="cancel" id="cancel-btn">No</button>
     </dialog>
-    <div id="toast-container">
-
-    </div>
+    <div id="toast-container"></div>
     <script src="app.js"></script>
   </body>
 </html>

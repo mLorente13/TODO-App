@@ -1,3 +1,5 @@
+// Variable Declarations
+
 const submitBtn = document.getElementById("submit__btn");
 const taskContainer = document.getElementById("task__container");
 const deleteTaskModal = document.getElementById("delete-task");
@@ -5,36 +7,47 @@ const toastContainer = document.getElementById("toast-container");
 
 let deleteBtn;
 let toast;
+let taskName;
+let deleteTaskBtn = document.getElementById("delete-btn");
+let cancelBtn = document.getElementById("cancel-btn");
+
+// We get the value from the input with the id new__task and create a task with that value
 
 submitBtn.addEventListener("click", () => {
-  let taskName = document.getElementById("new__task").value;
+  taskName = document.getElementById("new__task").value;
   if (taskName === "") {
     createInfoToast();
-    return;
-  }
-  taskContainer.innerHTML += `
-        <div class="task">
-            <p class="taskname">${taskName}</p>
-            <button class="delete__btn"><i class="bi bi-trash-fill"></i></button>
-        </div>
-    `;
-  deleteBtn = document.querySelectorAll(".delete__btn");
-  deleteBtn = Array.from(deleteBtn);
-  deleteBtn.forEach((element) => {
-    element.addEventListener("click", () => {
-      let btn1 = document.getElementById("yes");
-      let btn2 = document.getElementById("no");
-      deleteTaskModal.showModal();
-      btn1.addEventListener("click", () => {
-        deleteTaskModal.close();
-        createSuccessToast();
-      });
-      btn2.addEventListener("click", () => {
-        deleteTaskModal.close;
+  } else {
+    taskContainer.innerHTML += `
+    <div class="task">
+        <p class="taskname">${taskName}</p>
+        <button class="delete__btn"><i class="bi bi-trash-fill"></i></button>
+    </div>
+`;
+
+// We create an array of the deleteTask btns 
+// We open/close the modal to confirm the user want to delete the clicked task
+
+    deleteBtn = document.querySelectorAll(".delete__btn");
+    deleteBtn = Array.from(deleteBtn);
+    deleteBtn.forEach((element) => {
+      element.addEventListener("click", () => {
+        deleteTaskModal.showModal();
+        deleteTaskBtn.addEventListener("click", () => {
+          deleteTaskModal.close();
+          createSuccessToast();
+          removeTask(element);
+        });
+        cancelBtn.addEventListener("click", () => {
+          deleteTaskModal.close();
+        });
       });
     });
-  });
+  }
 });
+
+
+// We create a success toast when the task is deleted
 
 function createSuccessToast() {
   toastContainer.innerHTML += `
@@ -46,8 +59,10 @@ function createSuccessToast() {
   toast = Array.from(toast);
   setTimeout(() => {
     removeToast();
-  }, 3000)
+  }, 3000);
 }
+
+// We create an info toast to inform the user that the taskname can not be empty
 
 function createInfoToast() {
   toastContainer.innerHTML += `
@@ -59,12 +74,26 @@ function createInfoToast() {
   toast = Array.from(toast);
   setTimeout(() => {
     removeToast();
-  }, 3000)
+  }, 3000);
 }
 
+toastContainer.addEventListener("click", (element) => {
+  removeToast();
+});
+
+// We remove the toast that have been clicked/has expired its time
+
 function removeToast() {
-  console.log(toast)
   toast.forEach((element) => {
-    element.style.right = '-400px'
-  })
+    element.style.right = "-400px";
+    setTimeout(() => {
+      element.remove()
+    }, 1000)
+  });
+}
+
+// We remove the task
+
+function removeTask(element) {
+  element.parentElement.remove();
 }
