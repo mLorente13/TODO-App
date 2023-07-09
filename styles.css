@@ -1,0 +1,150 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #333;
+    color: #eee;
+    font-family: sans-serif;
+}
+
+.test {
+    height: 50%;
+}
+
+.task {
+    background-color: white;
+    color: #333;
+    padding: 1rem;
+    border-radius: 10px;
+}
+ 
+.task__input {
+    width: 300px;
+    height: 30px;
+    padding: 0 5px;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+} 
+
+.submit__btn {
+    height: 30px;
+    background-color: white;
+    border-radius: 5px;
+    padding: 0 5px;
+    margin: 0 .5rem;
+    border: 2px solid white;
+    transition: all ease-in .4s;
+}
+
+.submit__btn:hover {
+    opacity: .8;
+    cursor: pointer;
+} 
+
+.bi-trash-fill {
+    padding: 5px;
+    height: 30px;
+    width: 30px;
+}
+
+.delete__btn {
+    background-color: #e00000;
+    display: inline;
+    border: none;
+    border-radius: 5px;
+    height: 30px;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.taskname {
+    display: inline;
+    margin: 0 .5rem;
+}
+
+.modal {
+    background-color: #eee;
+    color: #333;
+    border-radius: 10px;
+    padding: 1rem;
+}
+
+#yes {
+    background-color: #e00000;
+    color: white;
+}
+
+#no {
+    background-color: #ccc;
+}
+
+#yes, #no {
+    border: none;
+    padding: 5px 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.submit__btn {
+    cursor: pointer;
+}
+
+.toast[data-position^='toast'] {
+    display: flex;
+    align-items: center;
+    background-color: #eee;
+    color: #333;
+    border-radius: .5rem;
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 4rem;
+    width: 300px;
+    cursor: pointer;
+    margin: .75rem;
+    transition: all ease .3s;
+}
+
+.toast[data-position$='-info'] {
+    border-left: 8px solid #d8ca00;
+}
+
+.toast[data-position$='-success'] {
+    border-left: 8px solid #06c200;
+}
+
+
+
+.toast::before {
+    content: '\00D7';
+    position: absolute;
+    top: 5px;
+    right: 8px;
+    font-size: 1.25rem
+}
+
+.toast i, .toast p {
+    display: inline;
+}
+
+.toast i {
+    font-size: 1.5rem;
+    margin: .5rem;
+}
+
+.toast[data-position$='-success'] i {
+    color: #06c200;
+}
+
+.toast[data-position$='-info'] i {
+    color: #d8ca00;
+}
