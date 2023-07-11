@@ -51,7 +51,7 @@ submitBtn.addEventListener("click", () => {
 
 function createSuccessToast() {
   toastContainer.innerHTML += `
-  <div class='toast' data-position='toast-success'>
+  <div class='toast' data-status='toast-success'>
       <i class="bi bi-check-circle-fill"></i>
       <p>Task has been deleted succesfully</p>
     </div>`;
@@ -66,7 +66,7 @@ function createSuccessToast() {
 
 function createInfoToast() {
   toastContainer.innerHTML += `
-  <div class='toast' data-position='toast-info'>
+  <div class='toast' data-status='toast-info'>
     <i class='bi bi-info-circle-fill'></i>
     <p>Please enter a name for the task</p>
   </div>`;

@@ -149,10 +149,10 @@ body {
   margin: 0.5rem;
 }
 
-.toast[data-position$="-success"] i {
+.toast[data-status$="-success"] i {
   color: #06c200;
 }
 
-.toast[data-position$="-info"] i {
+.toast[data-status$="-info"] i {
   color: #d8ca00;
 }
