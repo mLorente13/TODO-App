@@ -107,7 +107,7 @@ body {
   cursor: pointer;
 }
 
-.toast[data-position^="toast"] {
+.toast[data-status^="toast"] {
   display: flex;
   align-items: center;
   background-color: #eee;
