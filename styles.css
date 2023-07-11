@@ -123,11 +123,11 @@ body {
   transition: all ease 0.3s;
 }
 
-.toast[data-position$="-info"] {
+.toast[data-status$="-info"] {
   border-left: 8px solid #d8ca00;
 }
 
-.toast[data-position$="-success"] {
+.toast[data-status$="-success"] {
   border-left: 8px solid #06c200;
 }
 
